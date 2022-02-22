@@ -5,7 +5,12 @@ import(
 )
 
 // Define custom int type to hold sides number and update CalcSquare signature by replacing #yourTypeNameHere#
-type intCustomType string
+type intCustomType int
+const (
+	SidesCircle intCustomType = 0
+	SidesTriangle intCustomType = 3
+	SidesSquare intCustomType = 4
+)
 
 // Define constants to represent 0, 3 and 4 sides.  Test uses mnemos: SidesTriangle(==3), SidesSquare(==4), SidesCircle(==0)
 // it's like:
@@ -14,15 +19,15 @@ type intCustomType string
 // CalcSquare(10.0, SidesCircle)
 
 func CalcSquare(sideLen float64, sidesNum intCustomType) float64 {
-	sn := string(sidesNum)
+	sn := sidesNum
 
 	switch sn {
-	case "SidesTriangle":
+	case SidesTriangle:
 		p := 3*sideLen/2
 		return 3*p*(p-sideLen)
-	case "SidesSquare":
+	case SidesSquare:
 		return sideLen*sideLen
-	case "SidesCircle":
+	case SidesCircle:
 		pi := math.Pi
 		return pi*sideLen*sideLen
 	default:
