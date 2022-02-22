@@ -21,8 +21,7 @@ const (
 func CalcSquare(sideLen float64, sidesNum intCustomType) float64 {
 	switch sidesNum {
 	case SidesTriangle:
-		p := 3*sideLen/2
-		return math.Sqrt(p*(p-sideLen)*3)
+		return (math.Sqrt(3)/4)*(sideLen*sideLen)
 	case SidesSquare:
 		return sideLen*sideLen
 	case SidesCircle:
